@@ -55,7 +55,8 @@ inputDecimal = (dot) => {
     currentNumber+=dot
 }
 percentage.addEventListener("click", (event)=>{
-    calculationOperator = "percentage"
+    currentNumber = parseFloat(currentNumber) / 100
+    updateScreen(currentNumber)
 })
 decimal.addEventListener("click", (event)=>{
     inputDecimal(event.target.value)
@@ -76,9 +77,6 @@ const calculate=()=>{
         break
         case "/":
             result = parseFloat(prevNumber) / parseFloat(currentNumber)
-        break
-        case "percentage":
-            result = parseFloat(currentNumber) / 100
         break
         default:
         break
